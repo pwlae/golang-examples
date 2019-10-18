@@ -1,6 +1,6 @@
 package main
 
-func merge(nums1 []int, m int, nums2 []int, n int)  {
+func merge(nums1 []int, m int, nums2 []int, n int) {
 	mindex, nindex := 0, 0
 	result := []int{}
 
@@ -24,8 +24,8 @@ func merge(nums1 []int, m int, nums2 []int, n int)  {
 		nindex += 1
 	}
 
-
-	for index,value := range result {
+	// I don't like it. Better to append directly to nums1 during the iteration somehow
+	for index, value := range result {
 		nums1[index] = value
 		//print(nums1[index])
 	}
