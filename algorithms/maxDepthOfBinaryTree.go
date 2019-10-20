@@ -6,9 +6,9 @@
  *     Right *TreeNode
  * }
  */
+package main
 
-
- func maxDepth(root *TreeNode) int {
+func maxDepth(root *TreeNode) int {
 	if root == nil {
 		return 0
 	}
@@ -22,4 +22,8 @@
 		return 1 + l
 	}
 	return 1 + r
+}
+
+func main() {
+	// TODO
 }
