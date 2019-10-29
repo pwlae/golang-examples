@@ -33,5 +33,3 @@ func main() {
 	print("position: ", search(list,72348723894), "\n")
 	print("position: ", search(list,101), "\n")
 }
-// 0         5 6         10
-// 1,2,3,4,5,6 7,8, 9,99,101
