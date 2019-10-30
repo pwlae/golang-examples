@@ -1,5 +1,3 @@
-// NOT YET READY!!!!
-
 package main
 
 type ListNode struct {
@@ -8,29 +6,42 @@ type ListNode struct {
 }
 
 func swapPairs(head *ListNode) *ListNode {
-	//print(head.Next.Next)
-	pointer := head.Next
-	head.Next = head
-	head = pointer
-	//print(head.Val)
-	print(head.Next)
-	if pointer.Next != nil {
-		return swapPairs(pointer)
+	pointer := head
+	if head == nil {
+		return head
+	} else if head.Next == nil {
+		return head
+	} else if head.Next.Next == nil {
+		head = head.Next
+		pointer.Next = nil
+		head.Next = pointer
+	} else {
+		head = head.Next
+		pointer.Next = swapPairs(pointer.Next.Next)
+		head.Next = pointer
 	}
-	
-	return head
-
-// 1 -> 2 // 1 -> 1, 2,	
+	return head	
 }
 
-
-
-
-
+// testing
 func main() {
-	l := &ListNode{ Val: 0, Next: &ListNode{ Val: 1, }, }
-			// Val : 1, Next :  {
-			// 	Val : 2, Next : {
-			// 		Val :3 },}}}
-	swapPairs(l)
+	first := &ListNode{ Val: 1,}
+	second := &ListNode{ Val: 2,}
+	third := &ListNode{ Val: 3,}
+	fourth := &ListNode{ Val: 4,}
+	fifth := &ListNode{ Val: 5,}
+	sixth := &ListNode{ Val: 6,}
+
+	first.Next = second
+	second.Next = third
+	third.Next = fourth
+	fourth.Next = fifth
+	fifth.Next = sixth
+
+	swapPairs(first)
+	pointer := second
+	for i:=0; i<6; i++ {
+		print(pointer.Val)
+		pointer = pointer.Next
+	}
 }
