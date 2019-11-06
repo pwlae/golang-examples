@@ -11,14 +11,14 @@ type rot13Reader struct {
 }
 
 func rot13(r byte) byte {
-	if (r >= 'A' && r <= 'Z') {
-		if r + 13 > 'Z' {
+	if r >= 'A' && r <= 'Z' {
+		if r+13 > 'Z' {
 			return (r + 12) - 'Z' + 'A'
 		}
 		return r + 13
 
-	} else if (r >= 'a' && r <= 'z') {
-		if r + 13 > 'z' {
+	} else if r >= 'a' && r <= 'z' {
+		if r+13 > 'z' {
 			return (r + 12) - 'z' + 'a'
 		}
 		return r + 13
@@ -34,7 +34,7 @@ func (r *rot13Reader) Read(s []byte) (int, error) {
 	}
 
 	var buffer []byte
-	for i:=0; i<size; i++ {
+	for i := 0; i < size; i++ {
 		buffer = append(buffer, rot13(s[i]))
 	}
 	copy(s, buffer)
