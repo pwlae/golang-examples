@@ -1,8 +1,8 @@
 package main
 
 import (
-	"golang.org/x/tour/tree"
 	"fmt"
+	"golang.org/x/tour/tree"
 )
 
 // Walk walks the tree t sending all values
@@ -26,12 +26,12 @@ func Same(t1, t2 *tree.Tree) bool {
 	go Walk(t1, ch1)
 	go Walk(t2, ch2)
 
-	for i :=0; i < 10; i++ {
+	for i := 0; i < 10; i++ {
 		if <-ch1 != <-ch2 {
 			return false
 		}
 	}
-	
+
 	return true
 }
 
