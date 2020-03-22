@@ -9,7 +9,7 @@ func showTextFunction(text string) func() string {
 	return func() string {
 		return text + " function"
 	}
-  }
+}
 
 // Return string
 func showTestString(text string) string {
@@ -25,7 +25,7 @@ func showTestPuzzled() func(string) string {
 	}()
 
 	return func(text string) string {
-		return "I'm " + text + postfix 
+		return "I'm " + text + postfix
 	}
 }
 
